@@ -1,0 +1,49 @@
+
+print("Hello! Welcome to my game")
+print("In this game, you will be faced with many difficult challenges while you make your way to save the world from the evil monsters")
+print("It is your job to bypass all of the obstacles and safely reach the last level where you will defeat the last monster and finally rid the world of these foul beings!")
+print("Press the Up arrow key to move forward, the right arrow key to turn right, etcetra")
+import turtle
+
+wn = turtle.Screen()
+wn.setup(width=500, height=500)
+wn.bgcolor("black")
+
+red_square = turtle.Turtle()
+red_square.shape("square")
+red_square.color("red")
+red_square.shapesize(stretch_wid=2, outline=0)  
+
+red_square.penup()
+red_square.goto(200,150)  
+red_square.pendown()
+
+t = turtle.Turtle()
+t.color("green")
+t.penup()
+
+def goUp():
+    t.forward(45)
+
+def goDown():
+    t.backward(45)
+
+def goLeft():
+    t.left(45)
+
+def goRight():
+    t.right(45)
+
+wn.listen()
+wn.onkeypress(goUp, "Up")
+wn.onkeypress(goDown, "Down")
+wn.onkeypress(goLeft, "Left")
+wn.onkeypress(goRight, "Right")
+
+if t.distance(red_square) < 100:
+  print("You Win!")
+
+
+  wn.mainloop()
+
+  turtle.done()
